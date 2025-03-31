@@ -1,0 +1,127 @@
+:root
+    --CTA: #20BF55
+    --prim: #01BAEF
+    --second: #0B4F6C
+    --neutral: #FBFBFF
+    --darkNeutral: #757575
+
+    --borderSize: 3px
+    --borderRadius: 2px
+
+    --sameContextGap: 1rem
+    --differentContextGap: 3rem
+
+    --containerPadding: var(--sameContextGap)
+    --quickTransition: var(----quickTransition)
+    
+*
+    margin: 0
+    padding: 0
+    box-sizing: border-box
+    font-family: Arial, Helvetica, sans-serif
+    font-size: 16px
+    font-weight: 400
+    color: var(--second)
+
+body
+    background: var(--neutral)
+
+.wrapper
+    margin: 0 auto
+    max-width: 1280px
+
+h1, h2
+    font-size: 2em
+
+h3, h4
+    font-size: 1.5em
+
+h5, h6
+    font-size: 1.2em
+
+h1,h2,h3,h4,h5,h6,p
+    margin-bottom: var(--sameContextGap)
+
+a
+    font-weight: bold
+    text-decoration: none
+    color: var(--prim)
+    transition: var(----quickTransition)
+    &:hover
+        color: var(--second)
+    &.CTA
+        color: var(--CTA)
+        &:hover
+            color: var(--second)
+
+.linkBox
+    padding: var(--containerPadding) calc(var(--containerPadding) * 1.8)
+    border: var(--borderSize) solid var(--prim)
+    background: var(--neutral)
+    display: inline-block
+    transition: var(----quickTransition)
+    &:hover    
+        border: var(--borderSize) solid var(--second)
+        > a
+            color: var(--second)
+    &.CTA
+        border: var(--borderSize) solid var(--CTA)
+        &:hover    
+            border: var(--borderSize) solid var(--second)
+            > a
+                color: var(--second)
+        > a
+            color: var(--CTA)
+
+.border
+    border-radius: var(--borderRadius)
+
+.border.a
+    border: var(--borderSize) solid var(--second)
+
+.border.l
+    border-left: var(--borderSize) solid var(--second)
+    
+.border.t
+    border-top: var(--borderSize) solid var(--second)
+
+.border.r
+    border-right: var(--borderSize) solid var(--second)
+
+.border.b
+    border-bottom: var(--borderSize) solid var(--second)
+
+article
+    padding: var(--containerPadding)
+    p
+        &.dc
+            margin-bottom: var(--differentContextGap)
+
+section
+    display: flex
+    flex-wrap: wrap
+
+.col-1
+    width: 8.333%
+.col-2
+    width: 16.666%
+.col-3
+    width: 25%
+.col-4
+    width: 33.333%
+.col-5
+    width: 41.666%
+.col-6
+    width: 50%
+.col-7
+    width: 58.333%
+.col-8
+    width: 66.666%
+.col-9
+    width: 75%
+.col-10
+    width: 83.333%
+.col-11
+    width: 91.666%
+.col-12
+    width: 100%
