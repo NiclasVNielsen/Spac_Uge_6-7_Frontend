@@ -12,7 +12,7 @@
     --differentContextGap: 3rem
 
     --containerPadding: var(--sameContextGap)
-    --quickTransition: var(----quickTransition)
+    --quickTransition: 75ms
     
 *
     margin: 0
@@ -46,7 +46,7 @@ a
     font-weight: bold
     text-decoration: none
     color: var(--prim)
-    transition: var(----quickTransition)
+    transition: var(--quickTransition)
     &:hover
         color: var(--second)
     &.CTA
@@ -59,7 +59,7 @@ a
     border: var(--borderSize) solid var(--prim)
     background: var(--neutral)
     display: inline-block
-    transition: var(----quickTransition)
+    transition: var(--quickTransition)
     &:hover    
         border: var(--borderSize) solid var(--second)
         > a
@@ -78,18 +78,23 @@ a
 
 .border.a
     border: var(--borderSize) solid var(--second)
+    padding: calc(var(--sameContextGap) / 2) var(--sameContextGap)
 
 .border.l
     border-left: var(--borderSize) solid var(--second)
+    padding-left: var(--sameContextGap)
     
 .border.t
     border-top: var(--borderSize) solid var(--second)
+    padding-top: calc(var(--sameContextGap) / 2)
 
 .border.r
     border-right: var(--borderSize) solid var(--second)
+    padding-right: var(--sameContextGap)
 
 .border.b
     border-bottom: var(--borderSize) solid var(--second)
+    padding-bottom: calc(var(--sameContextGap) / 2)
 
 article
     padding: var(--containerPadding)
