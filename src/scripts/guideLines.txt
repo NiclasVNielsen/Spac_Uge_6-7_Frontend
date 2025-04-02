@@ -1,0 +1,20 @@
+Data
+ - Holds all the local Data
+ - One file holds relevant data for a given database table
+   ? all user data is stored in a file called users
+
+Methods
+ - Holds the top level methods 
+   ? Methods that will not be re-used
+ - One file holds methods for an endpoint 
+   ? Joined table endpoints have their own file
+   ? all methods that interacts with user data is in the users file
+
+Utilities
+ - Holds the lower level methods 
+   ? Methods that will be re-used
+ - Holds wild card methods that doesn't belong to a given data set
+   ? short hand method for sending http requests would belong here
+
+Models
+ - Holds the models and the methods to validate if an object matches it

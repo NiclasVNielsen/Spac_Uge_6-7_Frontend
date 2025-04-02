@@ -14,6 +14,8 @@
     --containerPadding: var(--sameContextGap)
     --quickTransition: 75ms
     
+    --cardSize: 300px
+
 *
     margin: 0
     padding: 0
@@ -22,6 +24,10 @@
     font-size: 16px
     font-weight: 400
     color: var(--second)
+
+img
+    width: 100%
+    height: auto
 
 body
     background: var(--neutral)
@@ -41,6 +47,7 @@ h5, h6
 
 h1,h2,h3,h4,h5,h6,p
     margin-bottom: var(--sameContextGap)
+    width: 100%
 
 a
     font-weight: bold
@@ -75,6 +82,7 @@ a
 
 .border
     border-radius: var(--borderRadius)
+    border: var(--borderSize) solid transparent
 
 .border.a
     border: var(--borderSize) solid var(--second)
@@ -95,6 +103,12 @@ a
 .border.b
     border-bottom: var(--borderSize) solid var(--second)
     padding-bottom: calc(var(--sameContextGap) / 2)
+
+.border.h
+    padding: calc(var(--sameContextGap) / 2) var(--sameContextGap)
+    transition: var(--quickTransition)
+    &:hover
+        border: var(--borderSize) solid var(--second)
 
 article
     padding: var(--containerPadding)
