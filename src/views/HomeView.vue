@@ -1,5 +1,7 @@
 <script setup>
-
+/* 
+  Frontend Product Page
+*/
 </script>
 
 <template>
