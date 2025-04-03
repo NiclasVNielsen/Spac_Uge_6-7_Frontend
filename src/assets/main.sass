@@ -54,6 +54,9 @@ button
     background: none
     border: none
 
+label
+    user-select: none
+
 .inBoxLabel
     padding: 3px calc(var(--sameContextGap))
     transition: var(--quickTransition)
@@ -79,6 +82,10 @@ input
         + .inBoxLabel
             border: var(--borderSize) solid var(--second)
     &:focus
+        border: var(--borderSize) solid var(--prim)
+        + .inBoxLabel
+            border: var(--borderSize) solid var(--prim)
+    &:hover
         border: var(--borderSize) solid var(--prim)
         + .inBoxLabel
             border: var(--borderSize) solid var(--prim)

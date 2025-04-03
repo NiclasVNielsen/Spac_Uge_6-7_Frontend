@@ -85,12 +85,12 @@
                 </div>
                 <div class="checkboxContainer containerPadding h">
                     <div class="flex toEdge">
-                        <input type="checkbox" required class="col-1">
-                        <a href="">Terms & Conditions</a>
+                        <input type="checkbox" class="col-1" id="newsletter">
+                        <label for="newsletter">Sign up to our News Letter!</label>
                     </div>
                     <div class="flex toEdge">
-                        <input type="checkbox" class="col-1">
-                        <label for="" >Sign up to our News Letter!</label>
+                        <input type="checkbox" required class="col-1">
+                        <a href="">Terms & Conditions</a>
                     </div>
                 </div>
                 <div class="linkBox CTA">
