@@ -16,7 +16,7 @@
             <label for="">Address</label>
             <input type="text">
         </div>
-        <div class="col-4">
+        <div class="col-4 shadow l">
             <h4 class="border b">
                 Items
             </h4>
