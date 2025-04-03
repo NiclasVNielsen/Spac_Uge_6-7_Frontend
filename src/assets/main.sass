@@ -54,6 +54,10 @@ button
     background: none
     border: none
 
+.inBoxLabel
+    padding: .2em calc(var(--sameContextGap))
+    transition: var(--quickTransition)
+
 input
     padding: calc(var(--sameContextGap) / 2) calc(var(--sameContextGap))
     border: var(--borderSize) solid var(--prim)
@@ -68,11 +72,19 @@ input
     margin-bottom: var(--sameContextGap)
     &:hover
         border: var(--borderSize) solid var(--prim)
+        + .inBoxLabel
+            border: var(--borderSize) solid var(--prim)
     &:invalid
         border: var(--borderSize) solid var(--second)
+        + .inBoxLabel
+            border: var(--borderSize) solid var(--second)
     &:focus
         border: var(--borderSize) solid var(--prim)
+        + .inBoxLabel
+            border: var(--borderSize) solid var(--prim)
         /* border: var(--borderSize) solid #ef4801 */
+    + .inBoxLabel
+        border: var(--borderSize) solid var(--prim)
     &.subtle[type="text"]
         border: none
         padding: 0

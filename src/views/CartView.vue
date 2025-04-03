@@ -11,19 +11,49 @@
             </h2>
             <div class="containerPadding h">
                 <div class="flex toEdge">
-                    <div class="col-6">
-                        <label for="">First Name</label>
+                    <div class="col-6 pair">
                         <input required type="text">
+                        <label class="inBoxLabel" for="">First Name</label>
                     </div>
-                    <div class="col-6">
-                        <label for="">Last Name</label>
+                    <div class="col-6 pair">
                         <input required type="text">
+                        <label class="inBoxLabel" for="">Last Name</label>
                     </div>
                 </div>
-                <label for="">Email</label>
-                <input required type="text">
-                <label for="">Address</label>
-                <input required type="text">
+                <div class="pair">
+                    <input required type="text">
+                    <label class="inBoxLabel" for="">Email</label>
+                </div>
+                <div class="flex toEdge">
+                    <div class="col-10 pair">
+                        <input required type="text">
+                        <label class="inBoxLabel" for="">Address</label>
+                    </div>
+                    <div class="col-2 pair">
+                        <input required type="text">
+                        <label class="inBoxLabel" for="">Apt/Blog</label>
+                    </div>
+                </div>
+                <div class="flex toEdge">
+                    <div class="col-6 pair">
+                        <input required type="text">
+                        <label class="inBoxLabel" for="">City</label>
+                    </div>
+                    <div class="col-6 pair">
+                        <input required type="text">
+                        <label class="inBoxLabel" for="">Country</label>
+                    </div>
+                </div>
+                <div class="flex toEdge">
+                    <div class="col-6 pair">
+                        <input required type="text">
+                        <label class="inBoxLabel" for="">Zip Code</label>
+                    </div>
+                    <div class="col-6 pair">
+                        <input required type="text">
+                        <label class="inBoxLabel" for="">Phone</label>
+                    </div>
+                </div>
             </div>
         </div>
         <div class="col-4 shadow l">
@@ -56,7 +86,7 @@
                 <div class="checkboxContainer containerPadding h">
                     <div class="flex toEdge">
                         <input type="checkbox" required class="col-1">
-                        <label for="" ><a href="">Terms & Conditions</a></label>
+                        <a href="">Terms & Conditions</a>
                     </div>
                     <div class="flex toEdge">
                         <input type="checkbox" class="col-1">
@@ -79,11 +109,21 @@
 label
     display: block
 
+
 input
     margin-bottom: var(--sameContextGap)
 
-/* .col-8, .col-4
-    padding: var(--containerPadding) */
+.col-8
+    input
+        &[type="text"]
+            border-radius: 0 0 var(--borderRadius) var(--borderRadius)
+            border-top: none
+    label
+        border-radius: var(--borderRadius) var(--borderRadius) 0 0
+        border-bottom: none
+    .pair
+        display: flex
+        flex-direction: column-reverse
 
 .wrapper
     min-height: 90vh
@@ -116,6 +156,7 @@ input
             margin-bottom: 0
             &[type="checkbox"]
                 border-color: var(--second)
+                margin-right: .2em
  
 
 </style>
