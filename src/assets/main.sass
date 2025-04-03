@@ -6,6 +6,7 @@
     --darkNeutral: #757575
 
     --borderSize: 3px
+    --borderSizeLight: 2px
     --borderRadius: 2px
 
     --sameContextGap: 1rem
@@ -64,7 +65,7 @@ label
 
 input
     padding: calc(var(--sameContextGap) / 2) calc(var(--sameContextGap))
-    border: var(--borderSize) solid var(--prim)
+    border: var(--borderSizeLight) solid var(--prim)
     background: var(--neutral)
     display: block
     width: 100%
@@ -75,24 +76,24 @@ input
     outline: none !important
     margin-bottom: var(--sameContextGap)
     &:hover
-        border: var(--borderSize) solid var(--prim)
+        border: var(--borderSizeLight) solid var(--prim)
         + .inBoxLabel
-            border: var(--borderSize) solid var(--prim)
+            border: var(--borderSizeLight) solid var(--prim)
     &:invalid
-        border: var(--borderSize) solid var(--second)
+        border: var(--borderSizeLight) solid var(--second)
         + .inBoxLabel
-            border: var(--borderSize) solid var(--second)
+            border: var(--borderSizeLight) solid var(--second)
     &:focus
-        border: var(--borderSize) solid var(--prim)
+        border: var(--borderSizeLight) solid var(--prim)
         + .inBoxLabel
-            border: var(--borderSize) solid var(--prim)
+            border: var(--borderSizeLight) solid var(--prim)
     &:hover
-        border: var(--borderSize) solid var(--prim)
+        border: var(--borderSizeLight) solid var(--prim)
         + .inBoxLabel
-            border: var(--borderSize) solid var(--prim)
+            border: var(--borderSizeLight) solid var(--prim)
         /* border: var(--borderSize) solid #ef4801 */
     + .inBoxLabel
-        border: var(--borderSize) solid var(--prim)
+        border: var(--borderSizeLight) solid var(--prim)
     &.subtle[type="text"]
         border: none
         padding: 0
@@ -149,26 +150,38 @@ a, button
 .border
     border-radius: var(--borderRadius)
     border: var(--borderSize) solid transparent
+    &.light
+        border: var(--borderSizeLight) solid transparent
 
 .border.a
     border: var(--borderSize) solid var(--second)
     padding: calc(var(--sameContextGap) / 2) var(--sameContextGap)
+    &.light
+        border: var(--borderSizeLight) solid var(--second)
 
 .border.l
     border-left: var(--borderSize) solid var(--second)
     padding-left: var(--sameContextGap)
-    
+    &.light
+        border-left: var(--borderSizeLight) solid var(--second)
+        
 .border.t
     border-top: var(--borderSize) solid var(--second)
     padding-top: calc(var(--sameContextGap) / 2)
+    &.light
+        border-top: var(--borderSizeLight) solid var(--second)
 
 .border.r
     border-right: var(--borderSize) solid var(--second)
     padding-right: var(--sameContextGap)
+    &.light
+        border-right: var(--borderSizeLight) solid var(--second)
 
 .border.b
     border-bottom: var(--borderSize) solid var(--second)
     padding-bottom: calc(var(--sameContextGap) / 2)
+    &.light
+        border-bottom: var(--borderSizeLight) solid var(--second)
 
 .border.h
     padding: calc(var(--sameContextGap) / 2) var(--sameContextGap)
