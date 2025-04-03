@@ -12,46 +12,46 @@
             <div class="containerPadding h">
                 <div class="flex toEdge">
                     <div class="col-6 pair">
-                        <input required type="text">
-                        <label class="inBoxLabel" for="">First Name</label>
+                        <input required type="text" id="firstName">
+                        <label class="inBoxLabel" for="firstName">First Name</label>
                     </div>
                     <div class="col-6 pair">
-                        <input required type="text">
-                        <label class="inBoxLabel" for="">Last Name</label>
+                        <input required type="text" id="lastName">
+                        <label class="inBoxLabel" for="lastName">Last Name</label>
                     </div>
                 </div>
                 <div class="pair">
-                    <input required type="text">
-                    <label class="inBoxLabel" for="">Email</label>
+                    <input required type="text" id="email">
+                    <label class="inBoxLabel" for="email">Email</label>
                 </div>
                 <div class="flex toEdge">
                     <div class="col-10 pair">
-                        <input required type="text">
-                        <label class="inBoxLabel" for="">Address</label>
+                        <input required type="text" id="address">
+                        <label class="inBoxLabel" for="address">Address</label>
                     </div>
                     <div class="col-2 pair">
-                        <input required type="text">
-                        <label class="inBoxLabel" for="">Apt/Blog</label>
+                        <input required type="text" id="apt">
+                        <label class="inBoxLabel" for="apt">Apt/Blog</label>
                     </div>
                 </div>
                 <div class="flex toEdge">
                     <div class="col-6 pair">
-                        <input required type="text">
-                        <label class="inBoxLabel" for="">City</label>
+                        <input required type="text" id="city">
+                        <label class="inBoxLabel" for="city">City</label>
                     </div>
                     <div class="col-6 pair">
-                        <input required type="text">
-                        <label class="inBoxLabel" for="">Country</label>
+                        <input required type="text" id="country">
+                        <label class="inBoxLabel" for="country">Country</label>
                     </div>
                 </div>
                 <div class="flex toEdge">
                     <div class="col-6 pair">
-                        <input required type="text">
-                        <label class="inBoxLabel" for="">Zip Code</label>
+                        <input required type="text" id="zip">
+                        <label class="inBoxLabel" for="zip">Zip Code</label>
                     </div>
                     <div class="col-6 pair">
-                        <input required type="text">
-                        <label class="inBoxLabel" for="">Phone</label>
+                        <input required type="text" id="phone">
+                        <label class="inBoxLabel" for="phone">Phone</label>
                     </div>
                 </div>
             </div>
