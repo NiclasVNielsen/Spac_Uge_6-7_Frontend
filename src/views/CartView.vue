@@ -9,43 +9,65 @@
             <h2 class="border b">
                 Shipment Details
             </h2>
-            <label for="">Name</label>
-            <input type="text">
-            <label for="">Email</label>
-            <input type="text">
-            <label for="">Address</label>
-            <input type="text">
+            <div class="containerPadding h">
+                <div class="flex toEdge">
+                    <div class="col-6">
+                        <label for="">First Name</label>
+                        <input required type="text">
+                    </div>
+                    <div class="col-6">
+                        <label for="">Last Name</label>
+                        <input required type="text">
+                    </div>
+                </div>
+                <label for="">Email</label>
+                <input required type="text">
+                <label for="">Address</label>
+                <input required type="text">
+            </div>
         </div>
         <div class="col-4 shadow l">
             <h4 class="border b">
                 Items
             </h4>
-            <div class="cartItem border b">
-                <div class="image">
-                    <img src="@/media/ph.jpg" alt="">
+            <div class="containerPadding h">
+                <div class="cartItem border b">
+                    <div class="image">
+                        <img src="@/media/ph.jpg" alt="">
+                    </div>
+                    <div class="name">
+                        Product 0
+                    </div>
+                    <div class="amount">
+                        <input type="text" value="3" class="subtle" @focus="function(e){e.srcElement.select()}"><span>x</span>
+                    </div>
                 </div>
-                <div class="name">
-                    Product 0
+                <div class="cartItem border b">
+                    <div class="image">
+                        <img src="@/media/ph.jpg" alt="">
+                    </div>
+                    <div class="name">
+                        Product 2
+                    </div>
+                    <div class="amount">
+                        <input type="text" value="1" class="subtle" @focus="function(e){e.srcElement.select()}"><span>x</span> 
+                    </div>
                 </div>
-                <div class="amount">
-                    3x 
+                <div class="checkboxContainer containerPadding h">
+                    <div class="flex toEdge">
+                        <input type="checkbox" required class="col-1">
+                        <label for="" ><a href="">Terms & Conditions</a></label>
+                    </div>
+                    <div class="flex toEdge">
+                        <input type="checkbox" class="col-1">
+                        <label for="" >Sign up to our News Letter!</label>
+                    </div>
                 </div>
-            </div>
-            <div class="cartItem border b">
-                <div class="image">
-                    <img src="@/media/ph.jpg" alt="">
+                <div class="linkBox CTA">
+                    <button type="submit" class="CTA">
+                        Order!
+                    </button>
                 </div>
-                <div class="name">
-                    Product 2
-                </div>
-                <div class="amount">
-                    1x 
-                </div>
-            </div>
-            <div class="linkBox CTA">
-                <button type="submit" class="CTA">
-                    Order!
-                </button>
             </div>
         </div>
     </form>
@@ -85,9 +107,15 @@ input
         width: auto
         height: calc(var(--listItemSize) - (var(--sameContextGap) * 2))
 
-.col-4
-    .linkBox
+.checkboxContainer
+    margin-top: var(--differentContextGap)
+    margin-bottom: var(--differentContextGap)
+    >div    
         margin-top: var(--sameContextGap)
-
+        input
+            margin-bottom: 0
+            &[type="checkbox"]
+                border-color: var(--second)
+ 
 
 </style>

@@ -9,7 +9,7 @@
     --borderRadius: 2px
 
     --sameContextGap: 1rem
-    --differentContextGap: 3rem
+    --differentContextGap: 2.5rem
 
     --containerPadding: var(--sameContextGap)
     --quickTransition: 75ms
@@ -53,6 +53,32 @@ h1,h2,h3,h4,h5,h6,p
 button
     background: none
     border: none
+
+input
+    padding: calc(var(--sameContextGap) / 2) calc(var(--sameContextGap))
+    border: var(--borderSize) solid var(--prim)
+    background: var(--neutral)
+    display: block
+    width: 100%
+    transition: var(--quickTransition)
+    border-radius: var(--borderRadius)
+    font-size: 1.2em
+    font-weight: 400
+    outline: none !important
+    margin-bottom: var(--sameContextGap)
+    &:hover
+        border: var(--borderSize) solid var(--prim)
+    &:invalid
+        border: var(--borderSize) solid var(--second)
+    &:focus
+        border: var(--borderSize) solid var(--prim)
+        /* border: var(--borderSize) solid #ef4801 */
+    &.subtle[type="text"]
+        border: none
+        padding: 0
+        margin-bottom: 0
+        text-align: right
+        font-size: 1rem
 
 a, button
     font-weight: bold
@@ -129,6 +155,26 @@ a, button
     transition: var(--quickTransition)
     &:hover
         border: var(--borderSize) solid var(--second)
+
+.containerPadding
+    padding: var(--containerPadding)
+    &.h
+        padding: 0 var(--containerPadding)
+    &.v
+        padding: var(--containerPadding) 0
+
+.flex
+    display: flex
+    flex-wrap: wrap
+    &.toEdge
+        div
+            &:first-of-type
+                padding-left: 0
+            &:last-of-type
+                padding-right: 0
+    &.center
+        justify-content: center
+        align-items: center
 
 article
     padding: var(--containerPadding)
