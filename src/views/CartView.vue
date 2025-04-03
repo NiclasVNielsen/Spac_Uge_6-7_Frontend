@@ -21,25 +21,25 @@
                 Items
             </h4>
             <div class="cartItem border b">
-                <div class="amount">
-                    3x 
-                </div>
                 <div class="image">
                     <img src="@/media/ph.jpg" alt="">
                 </div>
                 <div class="name">
                     Product 0
                 </div>
+                <div class="amount">
+                    3x 
+                </div>
             </div>
             <div class="cartItem border b">
-                <div class="amount">
-                    1x 
-                </div>
                 <div class="image">
                     <img src="@/media/ph.jpg" alt="">
                 </div>
                 <div class="name">
                     Product 2
+                </div>
+                <div class="amount">
+                    1x 
                 </div>
             </div>
             <div class="linkBox CTA">
