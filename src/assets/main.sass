@@ -4,6 +4,7 @@
     --second: #0B4F6C
     --neutral: #FBFBFF
     --darkNeutral: #757575
+    --warning: #ef4801
 
     --borderSize: 3px
     --borderSizeLight: 2px
@@ -135,6 +136,14 @@ a, button
                 color: var(--second)
         > a, > button
             color: var(--CTA)
+    &.warning
+        border: var(--borderSize) solid var(--warning)
+        &:hover    
+            border: var(--borderSize) solid var(--second)
+            > a, > button
+                color: var(--second)
+        > a, > button
+            color: var(--warning)
 
 .shadow.a
     box-shadow: 0 0 25px -10px var(--darkNeutral)
@@ -184,7 +193,6 @@ a, button
         border-bottom: var(--borderSizeLight) solid var(--second)
 
 .border.h
-    padding: calc(var(--sameContextGap) / 2) var(--sameContextGap)
     transition: var(--quickTransition)
     &:hover
         border: var(--borderSize) solid var(--second)

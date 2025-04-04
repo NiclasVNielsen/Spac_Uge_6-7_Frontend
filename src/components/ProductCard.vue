@@ -7,14 +7,12 @@ const props = defineProps(['product'])
 <template>
     <div class="border h card">
         <img src="@/media/ph.jpg" alt="">
-        <article>
-            <h6>
-                {{ props.product.name }}
-            </h6>
-            <p>
-                {{ props.product.category }}
-            </p>
-        </article>
+        <h6>
+            {{ props.product.name }}
+        </h6>
+        <p>
+            {{ props.product.category }}
+        </p>
     </div>
 </template>
 
@@ -25,5 +23,11 @@ const props = defineProps(['product'])
     width: var(--cardSize)
     text-align: center
     cursor: pointer
+    padding: var(--sameContextGap)
+    h6
+        margin-top: var(--sameContextGap)
+    p
+        margin-bottom: 0
+
 
 </style>
