@@ -8,6 +8,8 @@ const props = defineProps(['products', 'title', 'id'])
 // Gets the first 10 items of array
 const productsShortList = props.products.slice(0, 10)
 
+// Controls how things are displayed
+const showAll = ref(false)
 
 // Width of the item container
 const screenWidth = ref()
@@ -102,6 +104,17 @@ onMounted(() => {
   })
 })
 
+const toggleShowAll = () => {
+    showAll.value = !showAll.value
+    if(showAll.value == false){
+        setTimeout(() => {
+            getScreenWidth()
+            amount.value = getAmountOfItemsOnScreen()
+            updateDots(currentLocation.value, 'productsDots' + props.id)
+        }, 0);
+    }
+}
+
 </script>
 
 <template>
@@ -109,18 +122,30 @@ onMounted(() => {
     <h4 class="border b">
       {{ props.title }}!
     </h4>
-    <div class="productsHorizontalScrollContainer">
+    <div class="productsHorizontalScrollContainer" v-if="!showAll">
       <div>
         <template v-for="(product, index) in productsShortList" :key="index">
           <productCard :product="product" :id="'prod' + props.id + index" />
         </template>
       </div>
     </div>
-    <div class="dotContainer" :id="'productsDots' + props.id">
+    <div class="dotContainer" :id="'productsDots' + props.id" v-if="!showAll">
       <template v-for="(product, index) in productsShortList" :key="index">
         <div @click="function (event) {scrollToId(index, 'prod' + props.id, 'productsDots' + props.id, event)}" class="dot" :class="'dot' + props.id">
         </div>
       </template>
+    </div>
+    <div class="showAllList" v-if="showAll">
+      <div>
+        <template v-for="(product, index) in products" :key="index">
+          <productCard :product="product" :id="'prod' + props.id + index" />
+        </template>
+      </div>
+    </div>
+    <div class="viewAll">
+        <p class="linkBox" @click="toggleShowAll">
+            Show {{showAll ? "Less" : "All"}}
+        </p>
     </div>
   </section>
 </template>
@@ -168,5 +193,16 @@ onMounted(() => {
             border-radius: 50%
             background: var(--second)
             transition: var(--quickTransition)
+
+.viewAll
+    display: flex
+    justify-content: center
+    margin: var(--differentContextGap) 0
+    .linkBox
+        max-width: 250px
+
+.showAllList
+    .card
+        margin-bottom: var(--sameContextGap)
 
 </style>
