@@ -94,12 +94,14 @@ const updateDots = (index, dotContainerId, event = null) => {
         }
     
         if(index <= currentLocation.value){
+            onLeft.value = true
             if(index + amount.value > dots.length - 1)
             index = dots.length - amount.value
             for(let i = index; i < index + amount.value; i++){
                 dots[i].classList.add("on")
             }
         }else{
+            onLeft.value = false
             if(index - amount.value < 0)
             index = amount.value
             for(let i = index; i > index - amount.value; i--){
@@ -148,14 +150,14 @@ const toggleShowAll = () => {
       </div>
     </div>
     <div class="dotContainer" :id="'productsDots' + props.id" v-if="!showAll">
-        <div @click="scrollToId(currentLocation - 1, 'prod' + props.id, 'productsDots' + props.id, null)">
+        <div @click="() => {if(currentLocation - 1 >= 0) scrollToId(onLeft ?  currentLocation - 1 : currentLocation - amount, 'prod' + props.id, 'productsDots' + props.id, null)}">
             <
         </div>
       <template v-for="(product, index) in productsShortList" :key="index">
         <div @click="function (event) {scrollToId(index, 'prod' + props.id, 'productsDots' + props.id, event)}" class="dot" :class="'dot' + props.id">
         </div>
       </template>
-        <div @click="scrollToId(currentLocation + 1, 'prod' + props.id, 'productsDots' + props.id, null)">
+        <div @click="() => {if(currentLocation + 1 < productsShortList.length) scrollToId(onLeft ? currentLocation + amount : currentLocation + 1, 'prod' + props.id, 'productsDots' + props.id, null)}">
             >
         </div>
     </div>
