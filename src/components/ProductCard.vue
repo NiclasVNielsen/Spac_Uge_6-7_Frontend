@@ -5,7 +5,7 @@ const props = defineProps(['product'])
 </script>
 
 <template>
-    <div class="border h card">
+    <div class="shadow h card">
         <div class="imgContainer">
             <img src="@/media/ph.jpg" alt="">
         </div>

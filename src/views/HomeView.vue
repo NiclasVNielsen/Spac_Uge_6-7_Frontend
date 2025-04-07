@@ -30,8 +30,8 @@ const productsShortList = products.value.slice(0, 10)
     overflow-x: scroll
     overflow-y: hidden
     white-space: nowrap
+    padding: var(--sameContextGap)
     padding-right: 50px
-    padding-left: 2px
   &::after
     top: 0
     left: 0
