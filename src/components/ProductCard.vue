@@ -13,6 +13,10 @@ const props = defineProps(['product'])
         <p>
             {{ props.product.category }}
         </p>
+        <form action="" class="flex">
+            <input type="text" value="1" class="amount">
+            <input type="submit" value="Add to Cart" class="submit">
+        </form>
     </div>
 </template>
 
@@ -26,8 +30,18 @@ const props = defineProps(['product'])
     padding: var(--sameContextGap)
     h6
         margin-top: var(--sameContextGap)
-    p
+    .flex
         margin-bottom: 0
+        input
+            width: 50%
+            border-color: var(--second)
+        .amount
+            text-align: right
+            border-radius: var(--borderRadius) 0 0 var(--borderRadius)
+        .submit
+            border-radius: 0 var(--borderRadius) var(--borderRadius) 0
+
+
 
 
 </style>

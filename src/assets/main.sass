@@ -118,32 +118,36 @@ a, button
 .linkBox
     padding: var(--containerPadding) calc(var(--containerPadding) * 1.8)
     border: var(--borderSize) solid var(--prim)
-    background: var(--neutral)
+    background: var(--prim)
+    a, button
+       color: var(--neutral)
     display: inline-block
     transition: var(--quickTransition)
     text-align: center
     cursor: pointer
     border-radius: var(--borderRadius)
     &:hover    
-        border: var(--borderSize) solid var(--second)
+        background: var(--neutral)
         > a, > button
-            color: var(--second)
+            color: var(--prim)
     &.CTA
         border: var(--borderSize) solid var(--CTA)
+        background: var(--CTA)
         &:hover    
-            border: var(--borderSize) solid var(--second)
+            background: var(--neutral)
             > a, > button
-                color: var(--second)
+                color: var(--CTA)
         > a, > button
-            color: var(--CTA)
+            color: var(--neutral)
     &.warning
         border: var(--borderSize) solid var(--warning)
+        background: var(--warning)
         &:hover    
-            border: var(--borderSize) solid var(--second)
+            background: var(--neutral)
             > a, > button
-                color: var(--second)
+                color: var(--warning)
         > a, > button
-            color: var(--warning)
+            color: var(--neutral)
 
 .shadow.a
     box-shadow: 0 0 25px -10px var(--darkNeutral)
