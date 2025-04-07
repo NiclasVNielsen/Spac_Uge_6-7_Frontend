@@ -2,14 +2,21 @@
 import productCard from '@/components/ProductCard.vue'
 import { onMounted, ref } from 'vue'
 
+// Products = item array, Title = title?, id = unique id for this instance of ProductList
 const props = defineProps(['products', 'title', 'id'])
 
+// Gets the first 10 items of array
 const productsShortList = props.products.slice(0, 10)
 
 
+// Width of the item container
 const screenWidth = ref()
+
+// Currently focused item
 const currentLocation = ref(0)
-const amount = ref(3)
+
+// The amount of Dots
+const amount = ref(3) // Just a default
 
 
 // Gemini made this and i am very happy, i don't understand anything but that is fine
@@ -32,27 +39,33 @@ function horizontalScrollIntoView(element, options = {}) {
     });
   }
 }
+// ^^^ Gemini code ^^^
 
 
+// Scrolls to a given id, also an entry point
 const scrollToId = (id, item, dotContainerId, event) => {
   horizontalScrollIntoView(document.querySelector(`#${item}${id}`))
   updateDots(id, dotContainerId, event)
   currentLocation.value = id
 }
 
+// Helper
 const getScreenWidth = () => {
   screenWidth.value = document.querySelector(".productsHorizontalScrollContainer > div").offsetWidth - 32
 }
 
+// Figures out how many items that are on the screen
 const getAmountOfItemsOnScreen = () => {
   const AmountOfItemsOnScreen = Math.floor(screenWidth.value / 300)
   return AmountOfItemsOnScreen
 }
 
+// Helper
 const getDots = (id) => {
   return document.querySelectorAll(`#${id} .dot`)
 }
 
+// Updates the dot colors, also an entry point
 const updateDots = (index, dotContainerId, event = null) => {
     const dots = getDots(dotContainerId)
 
@@ -76,6 +89,7 @@ const updateDots = (index, dotContainerId, event = null) => {
     }
 }
 
+// Handles initial load and when window is resized
 onMounted(() => {
   getScreenWidth()
   amount.value = getAmountOfItemsOnScreen()
