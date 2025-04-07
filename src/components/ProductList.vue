@@ -16,6 +16,8 @@ const screenWidth = ref()
 
 // Currently focused item
 const currentLocation = ref(0)
+// Tracks if the focused item is on the left
+const onLeft = ref(true)
 
 // The amount of Dots
 const amount = ref(3) // Just a default
@@ -23,32 +25,40 @@ const amount = ref(3) // Just a default
 
 // Gemini made this and i am very happy, i don't understand anything but that is fine
 function horizontalScrollIntoView(element, options = {}) {
-  if (!element) {
-    return;
-  }
+    if (!element) {
+        return;
+    }
 
-  const rect = element.getBoundingClientRect();
-  const parentRect = element.parentElement.getBoundingClientRect();
+    const rect = element.getBoundingClientRect();
+    const parentRect = element.parentElement.getBoundingClientRect();
 
-  const isCompletelyVisibleHorizontally =
-    rect.left >= parentRect.left && rect.right <= parentRect.right;
+    let scrollLeft = element.parentElement.scrollLeft;
 
-  if (!isCompletelyVisibleHorizontally) {
-    const scrollLeft = rect.left + element.parentElement.scrollLeft - parentRect.left;
+    if (rect.left < parentRect.left) {
+        // Scroll to the left edge of the element
+        scrollLeft += rect.left - parentRect.left;
+    } else if (rect.right > parentRect.right) {
+        // Scroll to the right edge of the element
+        scrollLeft += rect.right - parentRect.right;
+    }
+
+    // Ensure we don't scroll past the content boundaries
+    const maxScrollLeft = element.parentElement.scrollWidth - parentRect.width;
+    const clampedScrollLeft = Math.max(0, Math.min(scrollLeft, maxScrollLeft));
+
     element.parentElement.scrollTo({
-      left: scrollLeft,
-      behavior: options.behavior || 'auto', // Keep the original behavior or default to 'auto'
+        left: clampedScrollLeft,
+        behavior: options.behavior || 'auto',
     });
-  }
 }
 // ^^^ Gemini code ^^^
 
 
 // Scrolls to a given id, also an entry point
 const scrollToId = (id, item, dotContainerId, event) => {
-  horizontalScrollIntoView(document.querySelector(`#${item}${id}`))
-  updateDots(id, dotContainerId, event)
-  currentLocation.value = id
+    horizontalScrollIntoView(document.querySelector(`#${item}${id}`))
+    updateDots(id, dotContainerId, event)
+    currentLocation.value = id
 }
 
 // Helper
@@ -83,10 +93,18 @@ const updateDots = (index, dotContainerId, event = null) => {
             dots[i].classList.remove("on")
         }
     
-        if(index + amount.value > dots.length - 1)
-        index = dots.length - amount.value
-        for(let i = index; i < index + amount.value; i++){
-            dots[i].classList.add("on")
+        if(index <= currentLocation.value){
+            if(index + amount.value > dots.length - 1)
+            index = dots.length - amount.value
+            for(let i = index; i < index + amount.value; i++){
+                dots[i].classList.add("on")
+            }
+        }else{
+            if(index - amount.value < 0)
+            index = amount.value
+            for(let i = index; i > index - amount.value; i--){
+                dots[i].classList.add("on")
+            }
         }
     }
 }
@@ -130,15 +148,21 @@ const toggleShowAll = () => {
       </div>
     </div>
     <div class="dotContainer" :id="'productsDots' + props.id" v-if="!showAll">
+        <div @click="scrollToId(currentLocation - 1, 'prod' + props.id, 'productsDots' + props.id, null)">
+            <
+        </div>
       <template v-for="(product, index) in productsShortList" :key="index">
         <div @click="function (event) {scrollToId(index, 'prod' + props.id, 'productsDots' + props.id, event)}" class="dot" :class="'dot' + props.id">
         </div>
       </template>
+        <div @click="scrollToId(currentLocation + 1, 'prod' + props.id, 'productsDots' + props.id, null)">
+            >
+        </div>
     </div>
     <div class="showAllList" v-if="showAll">
       <div>
         <template v-for="(product, index) in products" :key="index">
-          <productCard :product="product" :id="'prod' + props.id + index" />
+            <productCard :product="product" :id="'prod' + props.id + index" />
         </template>
       </div>
     </div>
