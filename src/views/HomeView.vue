@@ -6,8 +6,8 @@ import productList from '@/components/ProductList.vue'
 </script>
 
 <template>
-  <productList :products="products" title="Category 1" id="cat1" />
-  <productList :products="products" title="Category 2" id="cat2" />
+  <productList :products="products" title="Category 1" id="cat1" showCatagory="false" />
+  <productList :products="products" title="Category 2" id="cat2" showCatagory="false" />
 </template>
 
 <style lang="sass">
