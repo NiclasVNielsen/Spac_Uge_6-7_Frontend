@@ -43,6 +43,8 @@ const props = defineProps(['product'])
             margin-top: var(--sameContextGap)
     .flex
         margin-bottom: 0
+        input
+            margin-bottom: 0
         .amount
             text-align: right
             border-radius: var(--borderRadius) 0 0 var(--borderRadius)
