@@ -31,7 +31,8 @@ const productsShortList = products.value.slice(0, 10)
     overflow-y: hidden
     white-space: nowrap
     padding: var(--sameContextGap)
-    padding-right: 50px
+    .card
+      margin-right: var(--sameContextGap)
   &::after
     top: 0
     left: 0
