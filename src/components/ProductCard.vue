@@ -27,6 +27,7 @@ const props = defineProps(['product'])
 <style lang="sass">
 
 .card
+    user-select: none
     display: inline-block
     width: var(--cardSize)
     cursor: pointer

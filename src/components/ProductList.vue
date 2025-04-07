@@ -179,6 +179,9 @@ const toggleShowAll = () => {
 
 <style lang="sass">
 
+h4
+    user-select: none
+
 .productsHorizontalScrollContainer
     position: relative
     >div
