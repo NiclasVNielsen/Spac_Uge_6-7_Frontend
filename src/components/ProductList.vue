@@ -126,6 +126,7 @@ onMounted(() => {
 
 const toggleShowAll = () => {
     showAll.value = !showAll.value
+    currentLocation.value = 0
     if(showAll.value == false){
         setTimeout(() => {
             getScreenWidth()
@@ -150,15 +151,15 @@ const toggleShowAll = () => {
       </div>
     </div>
     <div class="dotContainer" :id="'productsDots' + props.id" v-if="!showAll">
-        <div @click="() => {if(currentLocation - 1 >= 0) scrollToId(onLeft ?  currentLocation - 1 : currentLocation - amount, 'prod' + props.id, 'productsDots' + props.id, null)}">
-            <
+        <div @click="() => {if(currentLocation - 1 >= 0) scrollToId(onLeft ?  currentLocation - 1 : currentLocation - amount, 'prod' + props.id, 'productsDots' + props.id, null)}" class="chevron">
+            <svg fill="#01BAEF" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512"><path d="M9.4 233.4c-12.5 12.5-12.5 32.8 0 45.3l192 192c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3L77.3 256 246.6 86.6c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0l-192 192z"/></svg>
         </div>
       <template v-for="(product, index) in productsShortList" :key="index">
-        <div @click="function (event) {scrollToId(index, 'prod' + props.id, 'productsDots' + props.id, event)}" class="dot" :class="'dot' + props.id">
+        <div @click="event => {scrollToId(index, 'prod' + props.id, 'productsDots' + props.id, event)}" class="dot" :class="'dot' + props.id">
         </div>
       </template>
-        <div @click="() => {if(currentLocation + 1 < productsShortList.length) scrollToId(onLeft ? currentLocation + amount : currentLocation + 1, 'prod' + props.id, 'productsDots' + props.id, null)}">
-            >
+        <div @click="() => {if(currentLocation + 1 < productsShortList.length) scrollToId(onLeft ? currentLocation + amount : currentLocation + 1, 'prod' + props.id, 'productsDots' + props.id, null)}" class="chevron">
+            <svg fill="#01BAEF" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512"><path d="M310.6 233.4c12.5 12.5 12.5 32.8 0 45.3l-192 192c-12.5 12.5-32.8 12.5-45.3 0s-12.5-32.8 0-45.3L242.7 256 73.4 86.6c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0l192 192z"/></svg>
         </div>
     </div>
     <div class="showAllList" v-if="showAll">
@@ -200,6 +201,7 @@ const toggleShowAll = () => {
 .dotContainer
     display: flex
     justify-content: center
+    align-items: center
     flex-wrap: wrap
     .dot
         width: var(--sameContextGap)
@@ -230,5 +232,15 @@ const toggleShowAll = () => {
 .showAllList
     .card
         margin-bottom: var(--sameContextGap)
+
+.chevron
+    width: calc(.75em + (var(--sameContextGap) * 2))
+    display: flex
+    align-items: center
+    padding: 0 var(--sameContextGap)
+    img
+        fill: purple
+        color: orange
+        user-select: none
 
 </style>
