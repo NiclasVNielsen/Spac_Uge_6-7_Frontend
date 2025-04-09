@@ -19,6 +19,6 @@ test()
   <productList :products="products" title="Category 2" id="cat2" showCatagory="false" />
 </template>
 
-<style lang="sass">
+<style lang="sass" scoped>
 
 </style>

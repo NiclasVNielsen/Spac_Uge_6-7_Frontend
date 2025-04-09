@@ -10,6 +10,6 @@ import productList from '@/components/ProductList.vue'
   <productList :products="products" title="Category 2" id="cat2" />
 </template>
 
-<style lang="sass">
+<style lang="sass" scoped>
 
 </style>

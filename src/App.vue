@@ -23,7 +23,9 @@ import { RouterLink, RouterView } from 'vue-router'
   </main>
   <footer class="border">
     <div class="wrapper">
-      Footer stuff goes here 3:
+      <h5>
+        Footer stuff goes here 3:
+      </h5>
     </div>
   </footer>
 </template>
@@ -51,7 +53,9 @@ main
 footer
   background: var(--second)
   div
-    color: var(--neutral)
     padding: var(--differentContextGap) var(--sameContextGap)
+    h5
+      color: var(--neutral)
+      margin: 0
 
 </style>
