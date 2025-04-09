@@ -51,6 +51,7 @@ main
   min-height: calc(100vh - (19px + (var(--sameContextGap) * 2) + var(--borderSize)))
 
 footer
+  user-select: none
   background: var(--second)
   div
     padding: var(--differentContextGap) var(--sameContextGap)
