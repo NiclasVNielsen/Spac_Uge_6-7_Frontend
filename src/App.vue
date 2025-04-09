@@ -4,10 +4,14 @@ import { RouterLink, RouterView } from 'vue-router'
 
 <template>
   <header class="border b shadow" id="header">
-    <RouterLink to="/">Home</RouterLink>
-    <RouterLink to="/about">About</RouterLink>
-    <RouterLink to="/cart">Cart</RouterLink>
-    <RouterLink to="/login">Login</RouterLink>
+    <div class="flex">
+      <RouterLink to="/">Home</RouterLink>
+      <RouterLink to="/about">About</RouterLink>
+    </div>
+    <div class="flex">
+      <RouterLink to="/login">Login</RouterLink>
+      <RouterLink to="/cart">Cart</RouterLink>
+    </div>
     <!-- <RouterLink to="/create/test/1">Create</RouterLink>
     <RouterLink to="/update/test/1">Update</RouterLink>
     <RouterLink to="/delete/test/1">Delete</RouterLink> -->
@@ -34,10 +38,12 @@ import { RouterLink, RouterView } from 'vue-router'
   background: var(--neutral)
   padding: var(--sameContextGap)
   display: flex
-  justify-content: center
+  justify-content: space-between
   z-index: 10000
   a
     padding: 0 calc(var(--sameContextGap) / 2)
+  div:last-of-type
+    justify-content: flex-end
 
 main
   min-height: calc(100vh - (19px + (var(--sameContextGap) * 2) + var(--borderSize)))
