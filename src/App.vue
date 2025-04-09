@@ -15,7 +15,7 @@ import { RouterLink, RouterView } from 'vue-router'
   </header>
 
   <RouterView />
-  <footer>
+  <footer class="border">
     <div class="wrapper">
       Footer stuff goes here 3:
     </div>
