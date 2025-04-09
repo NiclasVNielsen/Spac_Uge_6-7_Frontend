@@ -268,7 +268,6 @@ h4
         color: orange
         user-select: none
 
-
 div:hover
     >svg
         fill: var(--prim)

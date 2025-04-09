@@ -24,7 +24,7 @@ const props = defineProps(['product', 'showCatagory'])
     </div>
 </template>
 
-<style lang="sass">
+<style lang="sass" scoped>
 
 .card
     user-select: none

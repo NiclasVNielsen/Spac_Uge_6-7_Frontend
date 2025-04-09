@@ -1,13 +1,13 @@
 module.exports = {
     devServer: {
       proxy: {
-        '/api': { // Match requests starting with /api
-          target: 'http://localhost:5182/', // Target API URL
-          changeOrigin: true, // Needed for virtual hosted sites
+        '/api': {
+          target: 'http://localhost:5182',
+          changeOrigin: true,
           pathRewrite: {
-            '^/api': '', // Remove /api from the request path
-          },
-        },
-      },
-    },
+            '^/api': '' // Remove the '/api' prefix
+          }
+        }
+      }
+    }
   };
