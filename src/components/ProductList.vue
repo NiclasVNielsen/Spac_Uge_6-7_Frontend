@@ -205,6 +205,7 @@ h4
         overflow-y: hidden
         white-space: nowrap
         padding: var(--sameContextGap)
+        padding-left: 0
         .card
             margin-right: var(--sameContextGap)
     &::after
