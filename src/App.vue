@@ -15,6 +15,11 @@ import { RouterLink, RouterView } from 'vue-router'
   </header>
 
   <RouterView />
+  <footer>
+    <div class="wrapper">
+      Footer stuff goes here 3:
+    </div>
+  </footer>
 </template>
 
 <style lang="sass" scoped>
@@ -31,5 +36,11 @@ import { RouterLink, RouterView } from 'vue-router'
   z-index: 10000
   a
     padding: 0 calc(var(--sameContextGap) / 2)
+
+footer
+  background: var(--second)
+  div
+    color: var(--neutral)
+    padding: var(--differentContextGap) var(--sameContextGap)
 
 </style>
