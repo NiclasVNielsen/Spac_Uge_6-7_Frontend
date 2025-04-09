@@ -5,7 +5,7 @@ import productList from '@/components/ProductList.vue'
 import * as CRUD from '@/scripts/utilities/httpRequests'
 
 const test = async () => {
-  const res = await CRUD.get("")
+  const res = await CRUD.get("warehouse")
   console.log(res)
 }
 test()

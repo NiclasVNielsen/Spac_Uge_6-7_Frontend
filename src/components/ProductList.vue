@@ -121,7 +121,6 @@ const updateDots = (index, dotContainerId, event = null) => {
         galleryContainer.classList.add("hideGradient")
     }
     else{
-        console.log(galleryContainer)
         if(galleryContainer.classList.contains("hideGradient") )
             galleryContainer.classList.remove("hideGradient")
     }

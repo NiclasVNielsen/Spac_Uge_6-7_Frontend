@@ -2,17 +2,19 @@
     This file holds short hand methods for all the http requests
 */
 
-const baseUrl = "https://jsonplaceholder.typicode.com/todos/1"
+const baseUrl = "http://localhost:5182/api/"
 
 
 export function get (urlEnding) {
     const url = baseUrl + urlEnding
+    console.log(url)
     return new Promise ((res, rej) => {
         try {
             fetch(url,{
                 method: 'GET'
             })
             .then(response => {
+                console.log(response)
                 response.json().then(data => {
 
                     if(response.error)
