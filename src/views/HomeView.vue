@@ -2,6 +2,13 @@
 import { products } from '@/scripts/data/products'
 import * as product from '@/scripts/methods/products'
 import productList from '@/components/ProductList.vue'
+import * as CRUD from '@/scripts/utilities/httpRequests'
+
+const test = async () => {
+  const res = await CRUD.get("")
+  console.log(res)
+}
+test()
 
 </script>
 

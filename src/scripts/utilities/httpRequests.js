@@ -2,20 +2,96 @@
     This file holds short hand methods for all the http requests
 */
 
-const address = "www.google.com"
+const baseUrl = "https://jsonplaceholder.typicode.com/todos/1"
 
-export const GET = () => {
-    
+
+export function get (urlEnding) {
+    const url = baseUrl + urlEnding
+    return new Promise ((res, rej) => {
+        try {
+            fetch(url,{
+                method: 'GET'
+            })
+            .then(response => {
+                response.json().then(data => {
+
+                    if(response.error)
+                        console.error("🔥", response.error)
+                    
+                    res(data)
+                })
+            })
+        } catch (error) {
+            rej(error)
+        }
+    })
 }
 
-export const POST = () => {
-
+export function update (urlEnding, body) {
+    const url = baseUrl + urlEnding
+    return new Promise((res, rej) => {
+        try {
+            fetch(url, {
+                method: "PUT",
+                headers: { "Content-Type": "application/json" },
+                body: JSON.stringify(body)
+            })
+            .then(response => {
+                
+                if(response.status > 199 && response.status < 300)
+                    console.log("^^")
+                else
+                    console.error("🔥")
+            })
+        } catch (error) {
+            rej(error)
+        }
+    })
 }
 
-export const PUT = () => {
+export function post (urlEnding, body) {
+    const url = baseUrl + urlEnding
+    return new Promise((res, rej) => {
+        try {
+            fetch(url, {
+                method: "POST",
+                headers: { "Content-Type": "application/json" },
+                body: JSON.stringify(body)
+            })
+            .then(response => {
+                
+                if(response.status > 199 && response.status < 300)
+                    console.log("^^")
+                else
+                    console.error("🔥")
 
+                res(response.status)
+            })
+        } catch (error) {
+            rej(error)
+        }
+    })
 }
 
-export const DELETE = () => {
+export function remove (urlEnding, body) {
+    const url = baseUrl + urlEnding
+    return new Promise((res, rej) => {
+        try {
+            fetch(url, {
+                method: "DELETE",
+                headers: { "Content-Type": "application/json" },
+                body: JSON.stringify(body)
+            })
+            .then(response => {
+                if(response.status > 199 && response.status < 300)
+                    console.log("^^")
+                else
+                    console.error("🔥")
 
+                res(response.status)
+            })
+        } catch (error) {
+            rej(error)
+        }
+    })
 }

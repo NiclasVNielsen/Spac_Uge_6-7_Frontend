@@ -85,6 +85,8 @@ const getDots = (id) => {
 // Updates the dot colors, also an entry point
 const updateDots = (index, dotContainerId, event = null) => {
     const dots = getDots(dotContainerId)
+    const galleryQuery = ".productsHorizontalScrollContainer."+props.id
+    const galleryContainer = document.querySelector(galleryQuery)
 
     let invalidInput = false
 
@@ -113,6 +115,15 @@ const updateDots = (index, dotContainerId, event = null) => {
                 dots[i].classList.add("on")
             }
         }
+    }
+
+    if(dots[productsShortList.length - 1].classList.contains("on")){
+        galleryContainer.classList.add("hideGradient")
+    }
+    else{
+        console.log(galleryContainer)
+        if(galleryContainer.classList.contains("hideGradient") )
+            galleryContainer.classList.remove("hideGradient")
     }
 }
 
@@ -148,7 +159,7 @@ const toggleShowAll = () => {
     <h4 class="border b">
       {{ props.title }}!
     </h4>
-    <div class="productsHorizontalScrollContainer" v-if="!showAll">
+    <div class="productsHorizontalScrollContainer" :class="props.id" v-if="!showAll">
       <div>
         <template v-for="(product, index) in productsShortList" :key="index">
           <productCard :product="product" :id="'prod' + props.id + index" :showCatagory="props.showCatagory" />
@@ -182,7 +193,7 @@ const toggleShowAll = () => {
   </section>
 </template>
 
-<style lang="sass">
+<style lang="sass" scoped>
 
 h4
     user-select: none
@@ -206,6 +217,11 @@ h4
         position: absolute
         background: linear-gradient(to right, var(--neutral), transparent 2px, transparent calc(100% - 50px), var(--neutral)  100%)
         pointer-events: none
+        opacity: 1
+        transition: 500ms
+    &.hideGradient
+        &::after
+            opacity: 0
 .dotContainer
     display: flex
     justify-content: center
