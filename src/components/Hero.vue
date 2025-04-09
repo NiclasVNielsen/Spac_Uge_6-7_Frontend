@@ -29,7 +29,7 @@ const props = defineProps(['title', 'paragraph'])
 <style lang="sass" scoped>
 
 .hero
-    height: calc(100vh - (19px + (var(--sameContextGap) * 2) + var(--borderSize)))
+    height: calc(100vh - (19px + (var(--sameContextGap) * 2) + var(--borderSize)) - var(--sameContextGap))
     border-bottom: solid var(--borderSize) var(--prim)
     border-radius: calc(var(--borderRadius))
     margin-bottom: var(--differentContextGap)

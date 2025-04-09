@@ -14,7 +14,9 @@ import { RouterLink, RouterView } from 'vue-router'
     <!-- <RouterLink to="/admin/home">AdminHome</RouterLink> -->
   </header>
 
-  <RouterView />
+  <main>
+    <RouterView />
+  </main>
   <footer class="border">
     <div class="wrapper">
       Footer stuff goes here 3:
@@ -36,6 +38,9 @@ import { RouterLink, RouterView } from 'vue-router'
   z-index: 10000
   a
     padding: 0 calc(var(--sameContextGap) / 2)
+
+main
+  min-height: calc(100vh - (19px + (var(--sameContextGap) * 2) + var(--borderSize)))
 
 footer
   background: var(--second)
