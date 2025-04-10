@@ -1,5 +1,7 @@
 /*
     This file holds short hand methods for all the http requests
+
+    run api:  dotnet run -p Lagersystem
 */
 
 const baseUrl = "http://localhost:5182/api/"
