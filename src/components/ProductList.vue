@@ -3,7 +3,7 @@ import productCard from '@/components/ProductCard.vue'
 import { onMounted, ref } from 'vue'
 
 // Products = item array, Title = title?, id = unique id for this instance of ProductList
-const props = defineProps(['products', 'title', 'id', 'showCatagory'])
+const props = defineProps(['products', 'title', 'id', 'showCategory'])
 
 // Gets the first 10 items of array
 const productsShortList = props.products.slice(0, 10)
@@ -161,7 +161,7 @@ const toggleShowAll = () => {
     <div class="productsHorizontalScrollContainer" :class="props.id" v-if="!showAll">
       <div>
         <template v-for="(product, index) in productsShortList" :key="index">
-          <productCard :product="product" :id="'prod' + props.id + index" :showCatagory="props.showCatagory" />
+          <productCard :product="product" :id="'prod' + props.id + index" :showCategory="props.showCategory" />
         </template>
       </div>
     </div>
@@ -180,7 +180,7 @@ const toggleShowAll = () => {
     <div class="showAllList" v-if="showAll">
       <div>
         <template v-for="(product, index) in products" :key="index">
-            <productCard :product="product" :id="'prod' + props.id + index" :showCatagory="props.showCatagory" />
+            <productCard :product="product" :id="'prod' + props.id + index" :showCategory="props.showCategory" />
         </template>
       </div>
     </div>

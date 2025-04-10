@@ -1,10 +1,11 @@
 <script setup>
+import router from '@/router';
 
 const login = (e) => {
     e.preventDefault()
     e.srcElement.classList.add("spinner")
     setTimeout(() => {
-        
+        router.push({ path: "/admin/home" })
     }, 3000);
 }
 
