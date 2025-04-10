@@ -1,5 +1,13 @@
 <script setup>
 
+const login = (e) => {
+    e.preventDefault()
+    e.srcElement.classList.add("spinner")
+    setTimeout(() => {
+        
+    }, 3000);
+}
+
 </script>
 
 <template>
@@ -18,7 +26,7 @@
                 <label class="inBoxLabel" for="password">Password</label>
             </div>
             
-            <div class="linkBox">
+            <div class="linkBox" @click="(e) => login(e)">
                 <button type="submit" class="">
                     Login!
                 </button>
