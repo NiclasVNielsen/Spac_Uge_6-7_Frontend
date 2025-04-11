@@ -1,4 +1,17 @@
 <script setup>
+import * as CRUD from '@/scripts/utilities/httpRequests'
+import { ref } from 'vue'
+import { useRoute } from 'vue-router'
+
+const route = useRoute()
+
+
+const item = ref({})
+
+const getItem = async () => {
+  item.value = await CRUD.get(route.params.type + "/" + route.params.id)
+}
+getItem()
 
 </script>
 
@@ -6,18 +19,17 @@
 <section class="wrapper flex center">
     <form action="" class="container border a shadow">
         <h2 class="border b">
-            Delete
+            Delete?
         </h2>
         <div class="containerPadding h">
-            <div class="pair">
-                <input required type="text" id="email">
-                <label class="inBoxLabel" for="email">Email</label>
+            <div v-for="([key, value], index) in Object.entries(item)" :key="index" class="pair">
+                <p>
+                    {{ key }}
+                </p>
+                <p>
+                    {{ value }}
+                </p>
             </div>
-            <div class="pair">
-                <input required type="password" id="password">
-                <label class="inBoxLabel" for="password">Password</label>
-            </div>
-            
             <div class="linkBox warning">
                 <button type="submit">
                     Delete!
@@ -90,6 +102,19 @@ input
             &[type="checkbox"]
                 border-color: var(--second)
                 margin-right: .2em
+
+.pair
+    flex-direction: column !important
+    >p
+        border-right: var(--borderSizeLight) solid var(--second)
+        border-left: var(--borderSizeLight) solid var(--second)
+        &:first-of-type
+            padding: .2em calc(var(--sameContextGap) / 2)
+            border-top: var(--borderSizeLight) solid var(--second)
+            margin-bottom: 0
+        &:last-of-type
+            border-bottom: var(--borderSizeLight) solid var(--second)
+            padding: calc(var(--sameContextGap) / 2)
  
 
 </style>

@@ -4,7 +4,12 @@ import { ref } from 'vue'
 
 const amount = ref(1)
 
-const props = defineProps(['product', 'showCategory'])
+const props = defineProps(['product', 'showCategory', 'admin'])
+
+let admin = true
+
+if(props.admin != "true")
+    admin = false
 
 const addToCart = (e) => {
     e.preventDefault()
@@ -34,12 +39,20 @@ const addToCart = (e) => {
                 {{ props.product.category }}
             </p>
         </article>
-        <form action="" class="flex">
+        <form action="" class="flex" v-if="!admin">
             <input type="text" @focus="function(e){e.srcElement.select()}" v-model="amount" class="amount">
             <div class="submit linkBox" @click="(e) => addToCart(e)">
                 <a href="">Add to Cart</a>
             </div>
         </form>
+        <div v-else class="flex controls">
+            <router-link :to="'/update/items/' + props.product.itemId" class="col-6 linkBox">
+                Edit
+            </router-link>
+            <router-link :to="'/delete/items/' + props.product.itemId" class="col-6 linkBox warning">
+                Delete
+            </router-link>
+        </div>
     </div>
 </template>
 
@@ -81,7 +94,13 @@ const addToCart = (e) => {
             &:hover
                 color: var(--prim)
                 border: solid var(--borderSizeLight)  var(--prim)
-
+    .controls
+        justify-content: space-between
+        .col-6
+            font-size: 1rem
+            width: calc(50% - (var(--sameContextGap) / 2))
+        .warning:hover
+            color: var(--warning)
 
 
 

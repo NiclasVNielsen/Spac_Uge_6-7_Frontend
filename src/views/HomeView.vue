@@ -11,7 +11,7 @@ const categories = ref([])
 const itemsByCategory = ref([])
 
 const getItems = async () => {
-  const items = await CRUD.get("item")
+  const items = await CRUD.get("items")
   items.forEach(item => {
     const categoryIndex = categories.value.indexOf(item.category)
     if(categoryIndex == -1){
