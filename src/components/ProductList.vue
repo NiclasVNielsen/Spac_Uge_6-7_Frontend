@@ -68,7 +68,10 @@ const scrollToId = (id, item, dotContainerId, event) => {
 
 // Helper
 const getScreenWidth = () => {
-  screenWidth.value = document.querySelector(".productsHorizontalScrollContainer > div").offsetWidth - 32
+    const element =  document.querySelector(".productsHorizontalScrollContainer > div")
+    if(element){
+        screenWidth.value = document.querySelector(".productsHorizontalScrollContainer > div").offsetWidth - 32
+    }
 }
 
 // Figures out how many items that are on the screen
@@ -105,7 +108,8 @@ const updateDots = (index, dotContainerId, event = null) => {
             if(index + amount.value > dots.length - 1)
             index = dots.length - amount.value
             for(let i = index; i < index + amount.value; i++){
-                dots[i].classList.add("on")
+                if(dots[i])
+                    dots[i].classList.add("on")
             }
         }else{
             onLeft.value = false

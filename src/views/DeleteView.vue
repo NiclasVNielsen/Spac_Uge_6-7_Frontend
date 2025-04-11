@@ -13,6 +13,11 @@ const getItem = async () => {
 }
 getItem()
 
+const deleteItem = async () => {
+    const response = await CRUD.remove(route.params.type + "/" + route.params.id)
+    console.log(response)
+}
+
 </script>
 
 <template>
@@ -30,7 +35,7 @@ getItem()
                     {{ value }}
                 </p>
             </div>
-            <div class="linkBox warning">
+            <div class="linkBox warning" @click="deleteItem">
                 <button type="submit">
                     Delete!
                 </button>

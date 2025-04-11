@@ -1,4 +1,23 @@
 <script setup>
+import * as CRUD from '@/scripts/utilities/httpRequests'
+import { ref } from 'vue'
+import { useRoute } from 'vue-router'
+
+const route = useRoute()
+
+
+const item = ref({})
+
+const getItem = async () => {
+  item.value = await CRUD.get(route.params.type + "/" + route.params.id)
+}
+getItem()
+
+const updateItem = async () => {
+    const response = await CRUD.update(route.params.type + "/" + route.params.id, item.value)
+    console.log(response)
+    console.log("response")
+}
 
 </script>
 
@@ -9,16 +28,14 @@
             Update
         </h2>
         <div class="containerPadding h">
-            <div class="pair">
-                <input required type="text" id="email">
-                <label class="inBoxLabel" for="email">Email</label>
-            </div>
-            <div class="pair">
-                <input required type="password" id="password">
-                <label class="inBoxLabel" for="password">Password</label>
+            <div v-for="([key, value], index) in Object.entries(item)" :key="index" class="pair">
+                <div class="pair">
+                    <input required type="text" :id="key" v-model="item[key]">
+                    <label class="inBoxLabel" :for="key">{{ key }}</label>
+                </div>
             </div>
             
-            <div class="linkBox">
+            <div class="linkBox" @click="updateItem">
                 <button type="submit" class="">
                     Update!
                 </button>

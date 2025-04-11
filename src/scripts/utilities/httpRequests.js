@@ -38,13 +38,12 @@ export function update (urlEnding, body) {
             fetch(url, {
                 method: "PUT",
                 headers: { "Content-Type": "application/json" },
-                credentials: 'include',
                 body: JSON.stringify(body)
             })
             .then(response => {
                 
                 if(response.status > 199 && response.status < 300)
-                    console.log("^^")
+                    res("^^")
                 else
                     console.error("🔥")
             })
@@ -61,7 +60,6 @@ export function post (urlEnding, body) {
             fetch(url, {
                 method: "POST",
                 headers: { "Content-Type": "application/json" },
-                credentials: 'include',
                 body: JSON.stringify(body)
             })
             .then(response => {
@@ -86,7 +84,6 @@ export function remove (urlEnding, body) {
             fetch(url, {
                 method: "DELETE",
                 headers: { "Content-Type": "application/json" },
-                credentials: 'include', 
                 body: JSON.stringify(body)
             })
             .then(response => {
