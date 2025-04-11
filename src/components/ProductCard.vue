@@ -1,6 +1,6 @@
 <script setup>
 
-const props = defineProps(['product', 'showCatagory'])
+const props = defineProps(['product', 'showCategory'])
 
 </script>
 
@@ -13,7 +13,7 @@ const props = defineProps(['product', 'showCatagory'])
             <h6>
                 {{ props.product.name }}
             </h6>
-            <p v-if="props.showCatagory != 'false'">
+            <p v-if="props.showCategory != 'false'">
                 {{ props.product.category }}
             </p>
         </article>

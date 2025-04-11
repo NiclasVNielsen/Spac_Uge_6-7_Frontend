@@ -71,10 +71,10 @@ const props = defineProps(['title', 'paragraph'])
 
 @keyframes bouncyThingy
     0%
-        margin-bottom: 0px
+        transform: translateY(0)
     50%
-        margin-bottom: 50px
+        transform: translateY(-25px)
     100%
-        margin-bottom: 0px
+        transform: translateY(0)
 
 </style>

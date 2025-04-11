@@ -7,6 +7,6 @@ export const instantiateProductObject = (id, name, category) => {
 }
 
 //test data
-for(let i = 0; i < 100; i++){
+for(let i = 0; i < 20; i++){
     instantiateProductObject(i, "product name " + i, "fruits")
 }

@@ -93,7 +93,7 @@
                         <a href="">Terms & Conditions</a>
                     </div>
                 </div>
-                <div class="linkBox CTA">
+                <div class="linkBox CTA" @click="(e) => {e.srcElement.classList.add('spinner')}">
                     <button type="submit" class="CTA">
                         Order!
                     </button>

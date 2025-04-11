@@ -1,4 +1,13 @@
 <script setup>
+import router from '@/router';
+
+const login = (e) => {
+    e.preventDefault()
+    e.srcElement.classList.add("spinner")
+    setTimeout(() => {
+        router.push({ path: "/admin/home" })
+    }, 3000);
+}
 
 </script>
 
@@ -18,7 +27,7 @@
                 <label class="inBoxLabel" for="password">Password</label>
             </div>
             
-            <div class="linkBox">
+            <div class="linkBox" @click="(e) => login(e)">
                 <button type="submit" class="">
                     Login!
                 </button>
