@@ -1,5 +1,12 @@
 <script setup>
 import { cart } from '@/scripts/data/cart'
+
+const removeIfZero = (index) => {
+    if(cart.value[index].amount == 0){
+        cart.value.splice(index, 1)
+    }
+}
+
 </script>
 
 <template>
@@ -71,7 +78,7 @@ import { cart } from '@/scripts/data/cart'
                             {{ cartItem.product.name }}
                         </div>
                         <div class="amount">
-                            <input type="text" v-model="cart[index].amount" class="subtle" @focus="function(e){e.srcElement.select()}"><span>x</span>
+                            <input type="text" v-model="cart[index].amount" class="subtle" @focus="function(e){e.srcElement.select()}" @change="removeIfZero(index)"><span>x</span>
                         </div>
                     </div>
                 </template>
