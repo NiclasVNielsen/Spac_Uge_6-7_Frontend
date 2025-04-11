@@ -1,5 +1,5 @@
 <script setup>
-
+import { cart } from '@/scripts/data/cart'
 </script>
 
 <template>
@@ -60,8 +60,22 @@
             <h4 class="border b">
                 Items
             </h4>
+            <!-- {{ cart }} -->
             <div class="containerPadding h">
-                <div class="cartItem border b">
+                <template v-for="(cartItem, index) in cart" :key="index">
+                    <div class="cartItem border b">
+                        <div class="image">
+                            <img src="@/media/ph.jpg" alt="">
+                        </div>
+                        <div class="name">
+                            {{ cartItem.product.name }}
+                        </div>
+                        <div class="amount">
+                            <input type="text" v-model="cart[index].amount" class="subtle" @focus="function(e){e.srcElement.select()}"><span>x</span>
+                        </div>
+                    </div>
+                </template>
+                <!-- <div class="cartItem border b">
                     <div class="image">
                         <img src="@/media/ph.jpg" alt="">
                     </div>
@@ -82,7 +96,7 @@
                     <div class="amount">
                         <input type="text" value="1" class="subtle" @focus="function(e){e.srcElement.select()}"><span>x</span> 
                     </div>
-                </div>
+                </div> -->
                 <div class="checkboxContainer containerPadding h">
                     <div class="flex toEdge">
                         <input type="checkbox" class="col-1" id="newsletter">
@@ -143,6 +157,7 @@ input
         width: 30%
     .name
         width: 50%
+        padding: 0 var(--sameContextGap)
     img
         width: auto
         height: calc(var(--listItemSize) - (var(--sameContextGap) * 2))

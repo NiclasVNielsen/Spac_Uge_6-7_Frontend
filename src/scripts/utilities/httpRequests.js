@@ -9,7 +9,6 @@ const baseUrl = "http://localhost:5182/api/"
 
 export function get (urlEnding) {
     const url = baseUrl + urlEnding
-    console.log(url)
     return new Promise ((res, rej) => {
         try {
             fetch(url,{
@@ -19,7 +18,6 @@ export function get (urlEnding) {
                 }
             })
             .then(response => {
-                console.log(response)
                 response.json().then(data => {
                     if(response.error)
                         console.error("🔥", response.error)

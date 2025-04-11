@@ -6,6 +6,7 @@ import productList from '@/components/ProductList.vue'
 import * as CRUD from '@/scripts/utilities/httpRequests'
 import { ref } from 'vue'
 
+
 const categories = ref([])
 const itemsByCategory = ref([])
 
@@ -20,7 +21,6 @@ const getItems = async () => {
       itemsByCategory.value[categoryIndex].push(item)
     }
   })
-  console.log(itemsByCategory.value)
 }
 getItems()
 
@@ -30,8 +30,10 @@ getItems()
   <hero title="Super Duper Cool Shop!" paragraph="This is the place where you can buy super cool stuff!" />
 
   <template v-for="(category, index) in categories" :key="index">
-    <template v-if="itemsByCategory[index].length > 10">
-      <productList :products="itemsByCategory[index]" :title="category" :id="'cat' + index" showCategory="false" />
+    <template v-if="index < 5">
+      <template v-if="itemsByCategory[index].length > 10">
+        <productList :products="itemsByCategory[index]" :title="category" :id="'cat' + index" showCategory="false" />
+      </template>
     </template>
   </template>
 

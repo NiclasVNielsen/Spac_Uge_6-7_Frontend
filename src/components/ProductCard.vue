@@ -1,6 +1,23 @@
 <script setup>
+import { cart } from '@/scripts/data/cart'
+import { ref } from 'vue'
+
+const amount = ref(1)
 
 const props = defineProps(['product', 'showCategory'])
+
+const addToCart = (e) => {
+    e.preventDefault()
+    e.srcElement.classList.add('spinner')
+    console.log(props.product)
+    cart.value.push({
+        amount,
+        product: props.product
+    })
+    setTimeout(() => {
+        e.srcElement.classList.remove('spinner')
+    }, 1000);
+}
 
 </script>
 
@@ -18,8 +35,10 @@ const props = defineProps(['product', 'showCategory'])
             </p>
         </article>
         <form action="" class="flex">
-            <input type="text" @focus="function(e){e.srcElement.select()}" value="1" class="amount">
-            <input type="submit" value="Add to Cart" class="submit linkBox">
+            <input type="text" @focus="function(e){e.srcElement.select()}" v-model="amount" class="amount">
+            <div class="submit linkBox" @click="(e) => addToCart(e)">
+                <a href="">Add to Cart</a>
+            </div>
         </form>
     </div>
 </template>
@@ -45,6 +64,7 @@ const props = defineProps(['product', 'showCategory'])
     .flex
         margin-bottom: 0
         input
+            position: relative
             margin-bottom: 0
         .amount
             text-align: right
